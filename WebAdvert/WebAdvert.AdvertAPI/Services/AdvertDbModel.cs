@@ -11,7 +11,7 @@ namespace WebAdvert.AdvertAPI.Services
     public class AdvertDbModel
     {
         [DynamoDBProperty]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [DynamoDBProperty]
         public string Title { get; set; }
         [DynamoDBProperty]
