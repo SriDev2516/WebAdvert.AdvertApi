@@ -21,8 +21,8 @@ namespace WebAdvert.AdvertAPI.Controllers
 
         [HttpPost]
         [Route("Create")]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(200, Type = typeof(CreateAdvertResponse))]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(201, Type = typeof(CreateAdvertResponse))]
         public async Task<IActionResult> Create(AdvertModel model)
         {
             string recordId = string.Empty;
@@ -39,8 +39,31 @@ namespace WebAdvert.AdvertAPI.Controllers
                 return StatusCode(500, ex.Message);
                 throw;
             }
-
             return StatusCode(201, new CreateAdvertResponse() { Id = recordId });
+        }
+
+        [HttpPut]
+        [Route("confirm")]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(200)]
+        public async Task<IActionResult> Confirm(ConfirmAdvertModel model)
+        {
+            try
+            {
+                await advertStorageService.Confirm(model);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return StatusCode(500, ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.Message);
+            }
+
+            return new OkResult();
         }
     }
 }
