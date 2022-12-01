@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Srinivas Annavarpu</Authors>
+    <Product>Web Advert Micro Services</Product>
+    <Company>None</Company>
   </PropertyGroup>
 
 </Project>

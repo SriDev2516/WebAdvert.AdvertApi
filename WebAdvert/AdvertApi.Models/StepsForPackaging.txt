@@ -1,0 +1,6 @@
+﻿go to the properties of the class library
+add details to the package tab
+go to the file path in the command tab and use the below command
+	dotnet pack WebAdvertApi.Models.cproj
+create an account in the nuget.org. Generate Key
+	dotnet nuget push AdvertApi.Models.1.0.0.nupkg --api-key oy2he6sde4jhmbrj4hfav47nxu4guo2efkarvo4ga47h3u --source https://api.nuget.org/v3/index.json
