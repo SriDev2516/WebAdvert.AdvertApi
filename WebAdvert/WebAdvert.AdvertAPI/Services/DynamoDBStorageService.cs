@@ -1,11 +1,11 @@
-﻿using AdvertApi.Models;
-using AutoMapper;
+﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
+using AdvertApi.Models;
 
 namespace WebAdvert.AdvertAPI.Services
 {
@@ -15,7 +15,7 @@ namespace WebAdvert.AdvertAPI.Services
 
         public DynamoDBStorageService(IMapper mapper)
         {
-            mapper = _mapper;
+            _mapper = mapper;
         }
         public async Task<string> Add(AdvertModel model)
         {
